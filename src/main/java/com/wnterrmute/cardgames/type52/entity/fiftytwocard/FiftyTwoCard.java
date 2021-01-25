@@ -8,10 +8,10 @@ package com.wnterrmute.cardgames.type52.entity.fiftytwocard;
 	public interface FiftyTwoCard {
 	    public enum PlayCardSuite {
 	    	Undefined(""),
-	        Ace("Ace"),
-	        Heart("Heart"),
-	        Diamond("Diamond"),
-	        Club("Club"),
+	        Aces("Ace"),
+	        Hearts("Heart"),
+	        Diamonds("Diamond"),
+	        Clubs("Club"),
 	        OutOfRange("oar")
 	        ;
 	    	String name = "";

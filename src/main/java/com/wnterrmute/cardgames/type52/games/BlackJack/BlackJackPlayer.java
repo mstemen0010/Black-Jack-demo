@@ -14,9 +14,14 @@ public class BlackJackPlayer extends CardPlayer  {
 	Stack<BlackJackCard> hand = new Stack<>();
 	int handTotal = 0;
 	boolean hasAce = false;
+	String name = null;
 
 	public BlackJackPlayer(boolean isDealer, BlackJackGame curGame) {
 		super(isDealer);
+		if( isDealer ) 
+			name = "Dealer";
+		else 
+			name = "Player";
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -60,10 +65,22 @@ public class BlackJackPlayer extends CardPlayer  {
 				card1Val = card1.getRank().getValue();
 			}
 			if( card1.getRank()== PlayCardRank.Ace ) {
-				
+				handTotal += 1;
+			}
+			else {
+				handTotal += cardVal;
 			}
 		}
 		return handTotal;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	
+	
+		System.out.print( getName() + ": " + c1.s + " " + c1.r + ", " + c2.s + " " + c2.r );
 	}
 
 }
