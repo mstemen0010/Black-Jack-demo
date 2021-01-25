@@ -34,7 +34,7 @@ public class BlackJackGame implements CardGame {
 		dealer = new  BlackJackPlayer( true, this );
 	}
 
-	// I know this does not reflect proper deal order (p,d,p,d ) but the requirements do not mention deal order, and I am not goign to bring my 
+	// I know this does not reflect proper deal order (p,d,p,d ) but the requirements do not mention deal order, and I am not going to bring my 
 	// person knowledge into those requirements 
 	// the same reason I didn't add a shuffle.. . there is no requirement for it
 	private void PlayHand() {
@@ -56,8 +56,10 @@ public class BlackJackGame implements CardGame {
 		}
 		if (newHand)
 			return;
-		if( p1Value < 16 ) {
-			p1Value = player.playHand();
+		while (! newHand ) {
+			if( p1Value < 16 ) {
+				p1Value = p1Value + player.playHand();
+			}
 		}
 	}
 	public void printStats() {

@@ -15,7 +15,8 @@ public class BlackJackPlayer extends CardPlayer  {
 	int handTotal = 0;
 	boolean hasAce = false;
 	String name = null;
-
+	StringBuilder logMsg = null; 
+	
 	public BlackJackPlayer(boolean isDealer, BlackJackGame curGame) {
 		super(isDealer);
 		if( isDealer ) 
@@ -26,11 +27,12 @@ public class BlackJackPlayer extends CardPlayer  {
 	}
 	
 	public int newHand() {
+		logMsg = new StringBuilder();
 		BlackJackCard card1 = currGame.getCard();
 		BlackJackCard card2 = currGame.getCard();
 		int card1Val = card1.getRank().getValue();
 		int card2Val = card2.getRank().getValue();
-		
+		addToLogMsg( showHand() );
 		if( card1Val == 10 &&  card2.getRank()== PlayCardRank.Ace ) {
 			handTotal= 21;
 			hasAce = true; /// for completeness 
@@ -78,9 +80,16 @@ public class BlackJackPlayer extends CardPlayer  {
 		return name;
 	}
 	
+	private addToLogMsg( String msg ) {
+		
+	}
 	
+	private String showHand( BlackJackCard c1, BlackJackCard c2) {
+		return new String ( getName() + ": " + c1.s + " " + c1.r + ", " + c2.s + " " + c2.r );
+	}
 	
-		System.out.print( getName() + ": " + c1.s + " " + c1.r + ", " + c2.s + " " + c2.r );
+	private void String addHand( BlackJackCard c1 ) {
+		return new String( c1.s + " " + c1.r );
 	}
 
 }
