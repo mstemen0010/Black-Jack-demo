@@ -40,6 +40,7 @@ public class BlackJackGame implements CardGame {
 	private void PlayHand() {
 		p1value = player.newHand();
 		dlValue = dealer.newHand();
+		boolean foundWinner = false;
 		newHand = false;
 		// the unlikely case of a 21 for either or both
 		if( plValue == dlValue && pValue == 21 ) {
@@ -60,7 +61,31 @@ public class BlackJackGame implements CardGame {
 			if( p1Value < 16 ) {
 				p1Value = p1Value + player.playHand();
 			}
-		}
+			if( plValue == 21 ) {
+				printResult("Player Wins" );
+				newHand = true;		
+				foundWinnder = true;
+				
+			}
+			if( plValue > 21 ) {
+				printResult("Dealer Wins" );
+				newHand = true;
+				foundWinnder = true;
+			}
+			dlValue = dlValue + dealer.playHand();
+			if( dlValue == 21 ) {
+				printResult("Dealer Wins" );
+				newHand = true;		
+				foundWinnder = true;
+				
+			}
+			if( plValue > 21 ) {
+				printResult("Player Wins" );
+				newHand = true;
+				foundWinnder = true;
+			}
+
+ 		}
 	}
 	public void printStats() {
 		// TODO Auto-generated method stub
